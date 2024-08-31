@@ -44,7 +44,7 @@ export const StyledField = styled(Field)`
   border-radius: ${(props) => props.theme.borderRadius.large};
   border: 2px solid ${(props) => props.theme.colors.borderColor};
   background-color: ${(props) => props.theme.colors.text};
-  color: ${(props) => props.theme.colors.text};
+  color: #fffff;
   font-size: ${(props) => props.theme.fontSizes.medium};
   font-family: ${(props) => props.theme.fonts.inter};
 

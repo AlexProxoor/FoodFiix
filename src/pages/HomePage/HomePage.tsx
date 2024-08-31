@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { fetchRecipes } from "utils/api";
+import React from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import RecipeList from "components/RecipeList/RecipeList";
 import Filter from "components/Filter/Filter";
@@ -14,68 +12,24 @@ import {
   AppContainer,
   MainContent,
 } from "./styled";
-import { RecipeData, ApiResponse, Hit } from "constans/types/apiTypes";
+import { useRecipes } from "hooks/useRecipes";
 
 const HomePage: React.FC = () => {
-  const [data, setData] = useState<RecipeData | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [selectedDiet, setSelectedDiet] = useState<string>("");
-  const [selectDishType, setSelectDishType] = useState<string>("");
-  const [nextPageUrl, setNextPageUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    performSearch("pasta");
-  }, []);
-
-  const performSearch = (
-    searchQuery: string,
-    diet: string = "",
-    dishtype: string = "",
-  ) => {
-    setLoading(true);
-    fetchRecipes(searchQuery, diet, dishtype)
-      .then((response: ApiResponse<Hit>) => {
-        setData(response as RecipeData);
-        setNextPageUrl(response._links?.next?.href || null);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err instanceof Error ? err.message : "Unknown error");
-        setData(null);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
-  const loadMoreRecipes = () => {
-    if (nextPageUrl) {
-      setLoading(true);
-      axios
-        .get(nextPageUrl)
-        .then((response) => {
-          setData((prevData: RecipeData | null) => ({
-            ...prevData!,
-            hits: [...(prevData?.hits || []), ...response.data.hits],
-          }));
-          setNextPageUrl(response.data._links?.next?.href || null);
-          setError(null);
-        })
-        .catch((err) => {
-          setError(err instanceof Error ? err.message : "Unknown error");
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  };
+  const {
+    data,
+    error,
+    loading,
+    loadMoreRecipes,
+    setSearchQuery,
+    setSelectedDiet,
+    setSelectDishType,
+  } = useRecipes("pasta");
 
   const handleSearchSubmit = (
     values: { query: string },
     actions: { setSubmitting: (isSubmitting: boolean) => void },
   ) => {
-    performSearch(values.query, selectedDiet, selectDishType);
+    setSearchQuery(values.query);
     actions.setSubmitting(false);
   };
 
@@ -89,9 +43,9 @@ const HomePage: React.FC = () => {
 
         <SearchBar handleSubmit={handleSearchSubmit} loading={loading} />
         <Filter
-          selectedDiet={selectedDiet}
+          selectedDiet={""}
           setSelectedDiet={setSelectedDiet}
-          selectDishType={selectDishType}
+          selectDishType={""}
           setSelectDishType={setSelectDishType}
         />
         {error && <p>Error: {error}</p>}
@@ -103,7 +57,7 @@ const HomePage: React.FC = () => {
         {data && (
           <>
             <RecipeList data={data} totalHits={data.count || 0} />
-            {nextPageUrl && (
+            {data._links?.next?.href && (
               <LoadMoreButton onClick={loadMoreRecipes} disabled={loading}>
                 {loading ? <Spinner /> : "Show more"}
               </LoadMoreButton>
