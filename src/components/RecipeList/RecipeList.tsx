@@ -4,6 +4,16 @@ import RecipeCard from "./RecipeCard";
 import { RecipeListProps } from "constans/types/recipeListTypes";
 
 const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
+  const renderRecipes = () => {
+    return data.hits.map((hit) => (
+      <RecipeCard key={hit.recipe.uri} recipe={hit.recipe} />
+    ));
+  };
+
+  const renderNoRecipesMessage = () => {
+    return <p>No recipes found.</p>;
+  };
+
   return (
     <div>
       <Centered>
@@ -11,13 +21,7 @@ const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
       </Centered>
 
       <RecipeListContainer>
-        {data.hits.length > 0 ? (
-          data.hits.map((hit) => (
-            <RecipeCard key={hit.recipe.uri} recipe={hit.recipe} />
-          ))
-        ) : (
-          <p>No recipes found.</p>
-        )}
+        {data.hits.length > 0 ? renderRecipes() : renderNoRecipesMessage()}
       </RecipeListContainer>
     </div>
   );

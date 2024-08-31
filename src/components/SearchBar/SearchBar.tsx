@@ -18,16 +18,21 @@ const InputRecipeSchema = Yup.object().shape({
 });
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleSubmit, loading }) => {
+  const handleFormSubmit = (
+    values: { query: string },
+    actions: FormikHelpers<{ query: string }>,
+  ) => {
+    handleSubmit(values, actions);
+  };
+
   return (
     <StyledFormContainer>
       <Formik
         initialValues={{ query: "" }}
         validationSchema={InputRecipeSchema}
-        onSubmit={(values, actions: FormikHelpers<{ query: string }>) => {
-          handleSubmit(values, actions);
-        }}
+        onSubmit={handleFormSubmit}
       >
-        {({ isSubmitting, handleSubmit }) => (
+        {({ submitForm }) => (
           <StyledForm>
             <StyledField
               type="text"
@@ -37,7 +42,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ handleSubmit, loading }) => {
             <SearchIcon
               onClick={(e) => {
                 e.preventDefault();
-                handleSubmit();
+                submitForm();
               }}
             />
             <StyledErrorMessage name="query" component="div" />

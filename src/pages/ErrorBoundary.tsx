@@ -29,6 +29,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     console.error("Uncaught error:", error, errorInfo);
   }
 
+  handleHomeButtonClick = () => {
+    window.location.href = "/";
+  };
+
   render() {
     if (this.state.hasError) {
       return (
@@ -39,7 +43,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             This page doesn't exist or was removed! We suggest you go back to
             the homepage.
           </SubMessage>
-          <HomeButton onClick={() => (window.location.href = "/")}>
+          <HomeButton onClick={this.handleHomeButtonClick}>
             Back to homepage
           </HomeButton>
         </NotFoundContainer>

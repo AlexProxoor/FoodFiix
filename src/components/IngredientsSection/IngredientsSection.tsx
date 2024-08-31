@@ -12,6 +12,30 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
   ingredients,
   ingredientImages,
 }) => {
+  const renderIngredientList = () => {
+    if (ingredients.length === 0) {
+      return <p>No ingredients available.</p>;
+    }
+    return ingredients.map((ingredient) => (
+      <IngredientItem key={ingredient.food}>
+        {ingredient.quantity} {ingredient.measure} {ingredient.food}
+      </IngredientItem>
+    ));
+  };
+
+  const renderIngredientImages = () => {
+    if (Object.keys(ingredientImages).length === 0) {
+      return <p>No images available.</p>;
+    }
+    return Object.keys(ingredientImages).map((ingredient) => (
+      <IngredientImage
+        key={ingredient}
+        src={ingredientImages[ingredient]}
+        alt={ingredient}
+      />
+    ));
+  };
+
   if (ingredients[0]?.food === "yogurt") {
     return <p>Yogurt is not available.</p>;
   }
@@ -20,32 +44,12 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
     <>
       <IngredientsWrapper>
         <h2>Ingredients</h2>
-        <ul>
-          {ingredients.length > 0 ? (
-            ingredients.map((ingredient) => (
-              <IngredientItem key={ingredient.food}>
-                {ingredient.quantity} {ingredient.measure} {ingredient.food}
-              </IngredientItem>
-            ))
-          ) : (
-            <p>No ingredients available.</p>
-          )}
-        </ul>
+        <ul>{renderIngredientList()}</ul>
       </IngredientsWrapper>
 
       <IngredientPhotosTitle>Products</IngredientPhotosTitle>
       <IngredientImagesContainer>
-        {Object.keys(ingredientImages).length > 0 ? (
-          Object.keys(ingredientImages).map((ingredient) => (
-            <IngredientImage
-              key={ingredient}
-              src={ingredientImages[ingredient]}
-              alt={ingredient}
-            />
-          ))
-        ) : (
-          <p>No images available.</p>
-        )}
+        {renderIngredientImages()}
       </IngredientImagesContainer>
     </>
   );

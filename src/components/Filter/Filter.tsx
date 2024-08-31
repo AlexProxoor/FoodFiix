@@ -9,12 +9,17 @@ const Filter: React.FC<FilterProps> = ({
   selectDishType,
   setSelectDishType,
 }) => {
+  const handleDietChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDiet(e.target.value);
+  };
+
+  const handleDishTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectDishType(e.target.value);
+  };
+
   return (
     <FilterContainer>
-      <StyledSelect
-        value={selectedDiet}
-        onChange={(e) => setSelectedDiet(e.target.value)}
-      >
+      <StyledSelect value={selectedDiet} onChange={handleDietChange}>
         <StyledOption value="">All Diets</StyledOption>
         {diets.map((diet) => (
           <StyledOption key={diet} value={diet}>
@@ -22,10 +27,7 @@ const Filter: React.FC<FilterProps> = ({
           </StyledOption>
         ))}
       </StyledSelect>
-      <StyledSelect
-        value={selectDishType}
-        onChange={(e) => setSelectDishType(e.target.value)}
-      >
+      <StyledSelect value={selectDishType} onChange={handleDishTypeChange}>
         <StyledOption value="">All Dish Types</StyledOption>
         {dishtypes.map((dishtype) => (
           <StyledOption key={dishtype} value={dishtype}>
