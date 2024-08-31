@@ -19,13 +19,14 @@ import {
   RecipeURL,
 } from "./styled";
 import IngredientsSection from "components/IngredientsSection/IngredientsSection";
+import { Recipe as RecipeType } from "constans/types/recipeTypes";
 
 const ingredientCache: { [key: string]: string } = {};
 
 const RecipeDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [recipe, setRecipe] = useState<any>(null);
+  const [recipe, setRecipe] = useState<RecipeType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [ingredientImages, setIngredientImages] = useState<{

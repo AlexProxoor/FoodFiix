@@ -1,13 +1,7 @@
 import React from "react";
 import { diets, dishtypes } from "constans/constans";
 import { FilterContainer, StyledSelect, StyledOption } from "./styled";
-
-interface FilterProps {
-  selectedDiet: string;
-  selectDishType: string;
-  setSelectedDiet: (diet: string) => void;
-  setSelectDishType: (dishtype: string) => void;
-}
+import { FilterProps } from "constans/types/filterTypes";
 
 const Filter: React.FC<FilterProps> = ({
   selectedDiet,

@@ -1,11 +1,7 @@
 import React from "react";
 import { Centered, RecipeListContainer } from "./styled";
 import RecipeCard from "./RecipeCard";
-
-interface RecipeListProps {
-  data: any;
-  totalHits: number;
-}
+import { RecipeListProps } from "constans/types/recipeListTypes";
 
 const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
   return (
@@ -15,8 +11,8 @@ const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
       </Centered>
 
       <RecipeListContainer>
-        {data.hits && data.hits.length > 0 ? (
-          data.hits.map((hit: any, index: number) => (
+        {data.hits.length > 0 ? (
+          data.hits.map((hit, index) => (
             <RecipeCard key={index} recipe={hit.recipe} />
           ))
         ) : (

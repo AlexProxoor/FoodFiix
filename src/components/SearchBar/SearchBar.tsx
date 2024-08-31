@@ -8,6 +8,7 @@ import {
   StyledErrorMessage,
   SearchIcon,
 } from "./styled";
+import { SearchBarProps } from "constans/types/searchTypes";
 
 const InputRecipeSchema = Yup.object().shape({
   query: Yup.string()
@@ -15,14 +16,6 @@ const InputRecipeSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required to fill out!"),
 });
-
-interface SearchBarProps {
-  handleSubmit: (
-    values: { query: string },
-    actions: { setSubmitting: (isSubmitting: boolean) => void },
-  ) => void;
-  loading: boolean;
-}
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleSubmit, loading }) => {
   return (

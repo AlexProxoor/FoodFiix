@@ -14,9 +14,10 @@ import {
   AppContainer,
   MainContent,
 } from "./styled";
+import { RecipeData, ApiResponse, Hit } from "constans/types/apiTypes";
 
 const HomePage: React.FC = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<RecipeData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedDiet, setSelectedDiet] = useState<string>("");
@@ -34,8 +35,8 @@ const HomePage: React.FC = () => {
   ) => {
     setLoading(true);
     fetchRecipes(searchQuery, diet, dishtype)
-      .then((response) => {
-        setData(response);
+      .then((response: ApiResponse<Hit>) => {
+        setData(response as RecipeData);
         setNextPageUrl(response._links?.next?.href || null);
         setError(null);
       })
@@ -54,9 +55,9 @@ const HomePage: React.FC = () => {
       axios
         .get(nextPageUrl)
         .then((response) => {
-          setData((prevData: any) => ({
-            ...prevData,
-            hits: [...prevData.hits, ...response.data.hits],
+          setData((prevData: RecipeData | null) => ({
+            ...prevData!,
+            hits: [...(prevData?.hits || []), ...response.data.hits],
           }));
           setNextPageUrl(response.data._links?.next?.href || null);
           setError(null);
