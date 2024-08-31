@@ -22,8 +22,8 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
         <h2>Ingredients</h2>
         <ul>
           {ingredients.length > 0 ? (
-            ingredients.map((ingredient, index) => (
-              <IngredientItem key={index}>
+            ingredients.map((ingredient) => (
+              <IngredientItem key={ingredient.food}>
                 {ingredient.quantity} {ingredient.measure} {ingredient.food}
               </IngredientItem>
             ))

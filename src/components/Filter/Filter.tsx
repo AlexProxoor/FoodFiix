@@ -16,8 +16,8 @@ const Filter: React.FC<FilterProps> = ({
         onChange={(e) => setSelectedDiet(e.target.value)}
       >
         <StyledOption value="">All Diets</StyledOption>
-        {diets.map((diet, index) => (
-          <StyledOption key={index} value={diet}>
+        {diets.map((diet) => (
+          <StyledOption key={diet} value={diet}>
             {diet}
           </StyledOption>
         ))}
@@ -27,8 +27,8 @@ const Filter: React.FC<FilterProps> = ({
         onChange={(e) => setSelectDishType(e.target.value)}
       >
         <StyledOption value="">All Dish Types</StyledOption>
-        {dishtypes.map((dishtype, index) => (
-          <StyledOption key={index} value={dishtype}>
+        {dishtypes.map((dishtype) => (
+          <StyledOption key={dishtype} value={dishtype}>
             {dishtype}
           </StyledOption>
         ))}

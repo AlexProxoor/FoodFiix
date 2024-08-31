@@ -157,11 +157,9 @@ export const Calories = styled.p`
     font-size: ${(props) => props.theme.fontSizes.xlarge};
     margin-right: ${(props) => props.theme.spacing.small};
   }
-
-  .quantity {
+  span {
     margin-right: ${(props) => props.theme.spacing.small};
   }
-
   @media (max-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.medium};
   }

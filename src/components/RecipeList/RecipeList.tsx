@@ -12,8 +12,8 @@ const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
 
       <RecipeListContainer>
         {data.hits.length > 0 ? (
-          data.hits.map((hit, index) => (
-            <RecipeCard key={index} recipe={hit.recipe} />
+          data.hits.map((hit) => (
+            <RecipeCard key={hit.recipe.uri} recipe={hit.recipe} />
           ))
         ) : (
           <p>No recipes found.</p>
