@@ -8,7 +8,7 @@ export const AppContainer = styled.div`
 
 export const MainContent = styled.main`
   flex: 1;
-  padding: 20px;
+  padding: ${(props) => props.theme.spacing.large};
 `;
 
 export const FooterWrapper = styled.footer`
@@ -19,16 +19,18 @@ export const TitleSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
+  font-size: ${(props) => props.theme.fontSizes.large};
+  font-family: ${(props) => props.theme.fonts.inter};
   font-weight: 100;
 
   @media (max-width: 768px) {
-    font-size: 12px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
+
   @media (max-width: 480px) {
-    font-size: 8px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
+
   @media (max-width: 390px) {
     display: none;
   }
@@ -47,13 +49,13 @@ export const Spinner = styled.div`
   animation: ${rotate360} 1s linear infinite;
   transform: translateZ(0);
 
-  border-top: 4px solid rgba(0, 0, 0, 0.1);
-  border-right: 4px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #000;
+  border-top: 4px solid ${(props) => props.theme.colors.lightGray};
+  border-right: 4px solid ${(props) => props.theme.colors.lightGray};
+  border-bottom: 4px solid ${(props) => props.theme.colors.lightGray};
+  border-left: 4px solid ${(props) => props.theme.colors.borderColor};
   background: transparent;
-  width: 40px;
-  height: 40px;
+  width: ${(props) => props.theme.spacing.large};
+  height: ${(props) => props.theme.spacing.large};
   border-radius: 50%;
 `;
 
@@ -67,21 +69,22 @@ export const LoadMoreButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
-  padding: 12px 24px;
-  font-size: 18px;
+  margin: ${(props) => props.theme.spacing.medium} auto;
+  padding: ${(props) => props.theme.spacing.small}
+    ${(props) => props.theme.spacing.medium};
+  font-size: ${(props) => props.theme.fontSizes.large};
   font-weight: 600;
-  color: white;
-  background-color: #27355a;
+  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.primary};
   border: none;
-  border-radius: 25px;
+  border-radius: ${(props) => props.theme.borderRadius.large};
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 4px 15px #007bff;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #27355a;
-    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
+    background-color: ${(props) => props.theme.colors.primary};
+    box-shadow: 0 6px 20px #0056b3;
   }
 
   &:disabled {

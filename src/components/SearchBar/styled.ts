@@ -5,22 +5,22 @@ import { FaSearch } from "react-icons/fa";
 export const StyledFormContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10%;
+  padding: 0 ${(props) => props.theme.spacing.large};
 
   @media (max-width: 1200px) {
-    padding: 0 8%;
+    padding: 0 ${(props) => props.theme.spacing.medium};
   }
 
   @media (max-width: 768px) {
-    padding: 0 6%;
+    padding: 0 ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 480px) {
-    padding: 0 4%;
+    padding: 0 ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 390px) {
-    padding: 0 2%;
+    padding: 0 ${(props) => props.theme.spacing.xsmall};
   }
 `;
 
@@ -29,68 +29,69 @@ export const StyledForm = styled(Form)`
   align-items: center;
   width: 100%;
   position: relative;
-  gap: 10px;
+  gap: ${(props) => props.theme.spacing.medium};
 
   @media (max-width: 390px) {
     flex-direction: column;
-    gap: 10px;
+    gap: ${(props) => props.theme.spacing.small};
   }
 `;
 
 export const StyledField = styled(Field)`
   width: 100%;
-  padding: 10px;
+  padding: ${(props) => props.theme.spacing.medium};
   padding-right: 40px;
-  border-radius: 25px;
-  border: 2px solid orange;
-  background-color: white;
-  color: black;
-  font-size: 16px;
-  font-family: "Garamond", serif;
+  border-radius: ${(props) => props.theme.borderRadius.large};
+  border: 2px solid ${(props) => props.theme.colors.borderColor};
+  background-color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  font-family: ${(props) => props.theme.fonts.inter};
 
   &::placeholder {
     color: #ccc;
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
+
     @media (max-width: 390px) {
-      font-size: 12px;
+      font-size: ${(props) => props.theme.fontSizes.small};
     }
   }
 
   &:focus {
     outline: none;
-    border-color: orange;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    border-color: ${(props) => props.theme.colors.borderColor};
+    box-shadow: 0 0 10px ${(props) => props.theme.colors.borderColor};
   }
 
   @media (max-width: 390px) {
-    font-size: 14px;
-    padding: 10px;
+    font-size: ${(props) => props.theme.fontSizes.small};
+    padding: ${(props) => props.theme.spacing.small};
     margin: 0;
   }
 `;
 
 export const SearchIcon = styled(FaSearch)`
   position: absolute;
-  right: 10px;
+  right: ${(props) => props.theme.spacing.medium};
   top: 50%;
   transform: translateY(-50%);
-  color: orange;
+  color: ${(props) => props.theme.colors.borderColor};
   cursor: pointer;
-  font-size: 18px;
+  font-size: ${(props) => props.theme.fontSizes.medium};
 
   @media (max-width: 390px) {
-    font-size: 16px;
-    right: 10px;
+    font-size: ${(props) => props.theme.fontSizes.small};
+    right: ${(props) => props.theme.spacing.small};
   }
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
   color: red;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  font-size: ${(props) => props.theme.fontSizes.small};
+  margin-top: ${(props) => props.theme.spacing.xsmall};
+  margin-bottom: ${(props) => props.theme.spacing.small};
 
   @media (max-width: 390px) {
-    font-size: 12px;
+    font-size: ${(props) => props.theme.fontSizes.xsmall};
   }
 `;

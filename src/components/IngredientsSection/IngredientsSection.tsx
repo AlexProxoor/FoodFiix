@@ -23,7 +23,7 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
   return (
     <>
       <IngredientsWrapper>
-        <h2 className="ingredients-title">Ingredients</h2>
+        <h2>Ingredients</h2>
         <ul>
           {ingredients.map((ingredient, index) => (
             <IngredientItem key={index}>

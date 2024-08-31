@@ -21,6 +21,7 @@
       "components/*": ["components/*"],
       "constans/*": ["constans/*"],
       "pages/*": ["pages/*"],
+      "theme/*": ["theme/*"],
       "utils/*": ["utils/*"]
     }
   },

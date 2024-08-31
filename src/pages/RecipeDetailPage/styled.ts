@@ -5,14 +5,14 @@ export const OuterContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 20px;
+  padding: ${(props) => props.theme.spacing.large};
 
   @media (max-width: 1200px) {
-    padding: 15px;
+    padding: ${(props) => props.theme.spacing.medium};
   }
 
   @media (max-width: 992px) {
-    padding: 10px;
+    padding: ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 768px) {
@@ -24,17 +24,17 @@ export const OuterContainer = styled.div`
 export const InnerContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: ${(props) => props.theme.spacing.large};
   max-width: 1200px;
   width: 100%;
   align-items: stretch;
 
   @media (max-width: 1200px) {
-    gap: 15px;
+    gap: ${(props) => props.theme.spacing.medium};
   }
 
   @media (max-width: 992px) {
-    gap: 10px;
+    gap: ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 768px) {
@@ -47,22 +47,22 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px;
+  padding: ${(props) => props.theme.spacing.large};
   padding-left: 90px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #27355a;
-  color: #ffffff;
+  border: 1px solid ${(props) => props.theme.colors.borderColor};
+  border-radius: ${(props) => props.theme.borderRadius.medium};
+  background-color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.text};
   overflow-y: auto;
   text-align: left;
 
   @media (max-width: 1200px) {
-    padding: 15px;
+    padding: ${(props) => props.theme.spacing.medium};
     padding-left: 60px;
   }
 
   @media (max-width: 992px) {
-    padding: 10px;
+    padding: ${(props) => props.theme.spacing.small};
     padding-left: 30px;
   }
 
@@ -73,65 +73,65 @@ export const InfoContainer = styled.div`
 `;
 
 export const MealType = styled.p`
-  font-size: 18px;
+  font-size: ${(props) => props.theme.fontSizes.large};
   font-weight: 300;
-  font-stretch: expanded;
-  margin-bottom: 10px;
+  font-family: ${(props) => props.theme.fonts.poppins};
+  margin-bottom: ${(props) => props.theme.spacing.small};
   color: #fdbd84;
 
   @media (max-width: 1200px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 
   @media (max-width: 992px) {
-    font-size: 14px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 `;
 
 export const RecipeTitle = styled.h1`
-  font-size: 40px;
-  font-family: "Times New Roman", serif;
-  font-weight: 300;
+  font-size: ${(props) => props.theme.fontSizes.xxlarge};
+  font-family: ${(props) => props.theme.fonts.playfairDisplay};
+  font-weight: 700;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: ${(props) => props.theme.spacing.xlarge};
 
   @media (max-width: 1200px) {
-    font-size: 36px;
+    font-size: ${(props) => props.theme.fontSizes.xlarge};
   }
 
   @media (max-width: 992px) {
-    font-size: 32px;
+    font-size: ${(props) => props.theme.fontSizes.large};
   }
 
   @media (max-width: 768px) {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
+    margin-bottom: ${(props) => props.theme.spacing.large};
   }
 `;
 
 export const CaloriesAndCuisine = styled.div`
   display: flex;
   align-items: center;
-  font-size: 16px;
-  margin-top: 20px;
-
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  margin-top: ${(props) => props.theme.spacing.large};
+  font-family: ${(props) => props.theme.fonts.poppins};
   & > *:not(:last-child) {
-    margin-right: 40px;
+    margin-right: ${(props) => props.theme.spacing.large};
   }
 
   @media (max-width: 1200px) {
     & > *:not(:last-child) {
-      margin-right: 30px;
+      margin-right: ${(props) => props.theme.spacing.medium};
     }
   }
 
   @media (max-width: 992px) {
     & > *:not(:last-child) {
-      margin-right: 20px;
+      margin-right: ${(props) => props.theme.spacing.small};
     }
   }
 
@@ -141,7 +141,7 @@ export const CaloriesAndCuisine = styled.div`
 
     & > *:not(:last-child) {
       margin-right: 0;
-      margin-bottom: 10px;
+      margin-bottom: ${(props) => props.theme.spacing.small};
     }
   }
 `;
@@ -149,66 +149,66 @@ export const CaloriesAndCuisine = styled.div`
 export const Calories = styled.p`
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: ${(props) => props.theme.fontSizes.large};
   margin: 0;
-  font-stretch: expanded;
 
   &::before {
     content: "🔥";
-    font-size: 20px;
-    margin-right: 8px;
+    font-size: ${(props) => props.theme.fontSizes.xlarge};
+    margin-right: ${(props) => props.theme.spacing.small};
   }
 
   .quantity {
-    margin-right: 8px;
+    margin-right: ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 1200px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 
   @media (max-width: 992px) {
-    font-size: 14px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 `;
 
 export const CuisineType = styled.p`
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: ${(props) => props.theme.fontSizes.large};
   margin: 0;
   font-stretch: expanded;
 
   &::before {
     content: "🌍";
-    font-size: 20px;
-    margin-right: 8px;
+    font-size: ${(props) => props.theme.fontSizes.xlarge};
+    margin-right: ${(props) => props.theme.spacing.small};
   }
 
   @media (max-width: 1200px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 
   @media (max-width: 992px) {
-    font-size: 14px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 `;
 
 export const RecipeURL = styled.p`
-  margin-top: 70px;
+  margin-top: ${(props) => props.theme.spacing.xlarge};
 
   a {
-    font-size: 30px;
-    font-family: "Times New Roman", serif;
-    color: #ffffff;
+    font-size: ${(props) => props.theme.fontSizes.xxlarge};
+    font-family: ${(props) => props.theme.fonts.playfairDisplay};
+
+    color: ${(props) => props.theme.colors.text};
     text-decoration: none;
 
     &:hover {
@@ -217,26 +217,26 @@ export const RecipeURL = styled.p`
   }
 
   @media (max-width: 1200px) {
-    margin-top: 50px;
+    margin-top: ${(props) => props.theme.spacing.large};
 
     a {
-      font-size: 28px;
+      font-size: ${(props) => props.theme.fontSizes.xlarge};
     }
   }
 
   @media (max-width: 992px) {
-    margin-top: 30px;
+    margin-top: ${(props) => props.theme.spacing.medium};
 
     a {
-      font-size: 24px;
+      font-size: ${(props) => props.theme.fontSizes.large};
     }
   }
 
   @media (max-width: 768px) {
-    margin-top: 20px;
+    margin-top: ${(props) => props.theme.spacing.medium};
 
     a {
-      font-size: 20px;
+      font-size: ${(props) => props.theme.fontSizes.medium};
     }
   }
 `;
@@ -257,7 +257,7 @@ export const ImageContainer = styled.div`
 export const RecipeImage = styled.img`
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: ${(props) => props.theme.borderRadius.medium};
 
   @media (max-width: 768px) {
     max-width: 90%;

@@ -4,40 +4,42 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #27355a;
-  padding: 20px;
+  background-color: ${(props) => props.theme.colors.primary};
+  padding: ${(props) => props.theme.spacing.large};
   text-align: left;
   position: relative;
 `;
 
 export const Title = styled.h1`
-  color: white;
-  font-size: 14px;
+  color: ${(props) =>
+    props.theme.colors.text}; // Ensure the text color matches the theme
+  font-size: ${(props) => props.theme.fontSizes.medium}; // Use theme font size
   font-weight: 400;
-  font-family: "Arial", sans-serif;
-  margin-left: 100px;
+  font-family: ${(props) => props.theme.fonts.spaceGrotesk};
+  margin-left: ${(props) => props.theme.spacing.large};
 
   @media (max-width: 769px) {
-    margin-left: 60px;
-    font-size: 12px;
+    margin-left: ${(props) => props.theme.spacing.medium};
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 360px) {
-    margin-left: 10px;
-    font-size: 12px;
+    margin-left: ${(props) => props.theme.spacing.small};
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 `;
 
 export const BackButton = styled.button`
   background-color: transparent;
-  color: white;
+  color: ${(props) => props.theme.colors.text};
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: ${(props) => props.theme.spacing.small}
+    ${(props) => props.theme.spacing.medium};
+  border-radius: ${(props) => props.theme.borderRadius.small};
   cursor: pointer;
-  font-size: 14px;
+  font-size: ${(props) => props.theme.fontSizes.small};
   position: relative;
-  margin-right: 50px;
+  margin-right: ${(props) => props.theme.spacing.large};
 
   @media (max-width: 360px) {
     display: none;
@@ -45,8 +47,8 @@ export const BackButton = styled.button`
 `;
 
 export const BurgerIcon = styled.div`
-  width: 30px;
-  height: 30px;
+  width: ${(props) => props.theme.spacing.large};
+  height: ${(props) => props.theme.spacing.large};
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -54,8 +56,8 @@ export const BurgerIcon = styled.div`
 
   div {
     width: 100%;
-    height: 3px;
-    background-color: white;
+    height: ${(props) => props.theme.spacing.small};
+    background-color: ${(props) => props.theme.colors.text};
   }
 
   @media (max-width: 360px) {
@@ -65,20 +67,21 @@ export const BurgerIcon = styled.div`
 
 export const BurgerMenu = styled.div`
   position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #27355a;
-  border-radius: 5px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  top: ${(props) => props.theme.spacing.large};
+  right: ${(props) => props.theme.spacing.medium};
+  background-color: ${(props) => props.theme.colors.primary};
+  border-radius: ${(props) => props.theme.borderRadius.small};
   z-index: 1000;
 `;
 
 export const MenuItem = styled.div`
-  color: white;
-  padding: 10px 15px;
+  color: ${(props) => props.theme.colors.text};
+  padding: ${(props) => props.theme.spacing.small}
+    ${(props) => props.theme.spacing.medium};
   cursor: pointer;
 
   &:hover {
-    background-color: #1f2a45;
+    background-color: ${(props) =>
+      props.theme.colors.lightGray}; // Adjusted color to theme
   }
 `;

@@ -9,103 +9,102 @@ export const IngredientsWrapper = styled.div`
     #334063 80%,
     #3b4766 100%
   );
-  border-radius: 32px;
-  padding: 20px;
-  color: #ffffff;
-  margin-top: 30px;
+  border-radius: ${(props) => props.theme.borderRadius.large};
+  padding: ${(props) => props.theme.spacing.large};
+  color: ${(props) => props.theme.colors.text};
+  margin-top: ${(props) => props.theme.spacing.large};
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-  h2.ingredients-title {
+  h2 {
     margin-top: 0;
-    font-size: 25px;
-    margin-bottom: 20px;
-    font-family: "Times New Roman", serif;
+    font-size: ${(props) => props.theme.fontSizes.large};
+    margin-bottom: ${(props) => props.theme.spacing.medium};
+    font-family: ${(props) => props.theme.fonts.playfairDisplay};
   }
 
   ul {
     padding-left: 0;
+    list-style: none;
   }
 
   @media (max-width: 1200px) {
     max-width: 450px;
-    padding: 15px;
+    padding: ${(props) => props.theme.spacing.medium};
 
-    h2.ingredients-title {
-      font-size: 22px;
+    h2 {
+      font-size: ${(props) => props.theme.fontSizes.medium};
     }
 
     ul {
-      font-size: 15px;
+      font-size: ${(props) => props.theme.fontSizes.small};
     }
   }
 
   @media (max-width: 992px) {
     max-width: 400px;
-    padding: 10px;
+    padding: ${(props) => props.theme.spacing.medium};
 
-    h2.ingredients-title {
-      font-size: 20px;
+    h2 {
+      font-size: ${(props) => props.theme.fontSizes.medium};
     }
 
     ul {
-      font-size: 14px;
+      font-size: ${(props) => props.theme.fontSizes.small};
     }
   }
 
   @media (max-width: 768px) {
     max-width: 100%;
-    padding: 10px;
-    margin-top: 20px;
+    padding: ${(props) => props.theme.spacing.medium};
+    margin-top: ${(props) => props.theme.spacing.medium};
 
-    h2.ingredients-title {
-      font-size: 18px;
+    h2 {
+      font-size: ${(props) => props.theme.fontSizes.small};
     }
 
     ul {
-      font-size: 13px;
+      font-size: ${(props) => props.theme.fontSizes.small};
     }
   }
 `;
 
 export const IngredientPhotosTitle = styled.h2`
-  font-size: 30px;
-  font-family: "Times New Roman", serif;
-  color: #ffffff;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  font-size: ${(props) => props.theme.fontSizes.xlarge};
+  font-family: ${(props) => props.theme.fonts.playfairDisplay};
+  color: ${(props) => props.theme.colors.text};
+  margin-top: ${(props) => props.theme.spacing.large};
+  margin-bottom: ${(props) => props.theme.spacing.medium};
 
   @media (max-width: 1200px) {
-    font-size: 28px;
+    font-size: ${(props) => props.theme.fontSizes.large};
   }
 
   @media (max-width: 992px) {
-    font-size: 24px;
+    font-size: ${(props) => props.theme.fontSizes.medium};
   }
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: ${(props) => props.theme.fontSizes.large};
   }
 `;
 
 export const IngredientItem = styled.li`
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: ${(props) => props.theme.spacing.small};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   font-weight: 300;
-  font-stretch: expanded;
-  color: rgba(255, 255, 255, 0.7);
-  list-style: none;
+  color: ${(props) => props.theme.colors.lightGray};
   display: flex;
   align-items: center;
   position: relative;
-  padding-left: 24px;
+  padding-left: ${(props) => props.theme.spacing.medium};
+  font-family: ${(props) => props.theme.fonts.poppins};
 
   &:before {
     content: "";
-    width: 12px;
-    height: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    width: ${(props) => props.theme.spacing.small};
+    height: ${(props) => props.theme.spacing.small};
+    border: 2px solid ${(props) => props.theme.colors.lightGray};
     border-radius: 50%;
     position: absolute;
     left: 0;
@@ -114,35 +113,35 @@ export const IngredientItem = styled.li`
   }
 
   @media (max-width: 1200px) {
-    font-size: 15px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 992px) {
-    font-size: 14px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 
   @media (max-width: 768px) {
-    font-size: 13px;
+    font-size: ${(props) => props.theme.fontSizes.small};
   }
 `;
 
 export const IngredientImagesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: ${(props) => props.theme.spacing.small};
   justify-content: center;
-  margin-top: 20px;
+  margin-top: ${(props) => props.theme.spacing.medium};
 
   @media (max-width: 768px) {
-    gap: 5px;
-    margin-top: 15px;
+    gap: ${(props) => props.theme.spacing.xsmall};
+    margin-top: ${(props) => props.theme.spacing.small};
   }
 `;
 
 export const IngredientImage = styled.img`
   max-width: 100px;
   height: auto;
-  border-radius: 8px;
+  border-radius: ${(props) => props.theme.borderRadius.small};
 
   @media (max-width: 768px) {
     max-width: 80px;
