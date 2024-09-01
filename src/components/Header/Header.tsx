@@ -8,6 +8,7 @@ import {
   MenuItem,
 } from "./styled";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES } from "constans";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
       <Title>Modsen recipe</Title>
       {showBackButton && (
         <>
-          <BackButton onClick={() => navigate("/")}>Home</BackButton>
+          <BackButton onClick={() => navigate(ROUTES.HOME)}>Home</BackButton>
           <BurgerIcon onClick={toggleMenu}>
             <div />
             <div />
@@ -32,7 +33,7 @@ const Header: React.FC = () => {
           </BurgerIcon>
           {isMenuOpen && (
             <BurgerMenu>
-              <MenuItem onClick={() => navigate("/")}>Home</MenuItem>
+              <MenuItem onClick={() => navigate(ROUTES.HOME)}>Home</MenuItem>
             </BurgerMenu>
           )}
         </>

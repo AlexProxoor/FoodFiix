@@ -2,6 +2,7 @@ import React from "react";
 import { Centered, RecipeListContainer } from "./styled";
 import RecipeCard from "./RecipeCard";
 import { RecipeListProps } from "constans/types/recipeListTypes";
+import { MESSAGES } from "constans";
 
 const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
   const renderRecipes = () => {
@@ -11,7 +12,7 @@ const RecipeList: React.FC<RecipeListProps> = ({ data, totalHits }) => {
   };
 
   const renderNoRecipesMessage = () => {
-    return <p>No recipes found.</p>;
+    return <p>{MESSAGES.NO_RECIPES_FOUND}</p>;
   };
 
   return (

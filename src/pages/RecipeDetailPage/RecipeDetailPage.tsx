@@ -19,6 +19,7 @@ import {
   CaloriesAndCuisine,
   RecipeURL,
 } from "./styled";
+import { MESSAGES } from "constans";
 
 const RecipeDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -76,7 +77,7 @@ const RecipeDetailPage: React.FC = () => {
             </InnerContainer>
           </OuterContainer>
         ) : (
-          <p>No recipe found.</p>
+          <p>{MESSAGES.NO_RECIPES_FOUND}</p>
         )}
       </main>
       <Footer />

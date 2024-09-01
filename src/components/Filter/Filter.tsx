@@ -1,5 +1,5 @@
 import React from "react";
-import { diets, dishtypes } from "constans/constans";
+import { diets, dishtypes } from "constans";
 import { FilterContainer, StyledSelect, StyledOption } from "./styled";
 import { FilterProps } from "constans/types/filterTypes";
 

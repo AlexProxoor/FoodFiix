@@ -5,7 +5,7 @@ import {
   RECIPE_APP_KEY,
   FOOD_DATABASE_APP_ID,
   FOOD_DATABASE_APP_KEY,
-} from "../constans/constans";
+} from "constans";
 
 export const fetchRecipes = async (
   searchQuery: string,

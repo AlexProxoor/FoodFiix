@@ -7,6 +7,7 @@ import {
   IngredientPhotosTitle,
 } from "./styled";
 import { IngredientsSectionProps } from "constans/types/ingredientTypes";
+import { MESSAGES } from "constans";
 
 const IngredientsSection: React.FC<IngredientsSectionProps> = ({
   ingredients,
@@ -14,7 +15,7 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
 }) => {
   const renderIngredientList = () => {
     if (ingredients.length === 0) {
-      return <p>No ingredients available.</p>;
+      return <p>{MESSAGES.NO_INGREDIENTS}</p>;
     }
     return ingredients.map((ingredient) => (
       <IngredientItem key={ingredient.food}>
@@ -25,7 +26,7 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
 
   const renderIngredientImages = () => {
     if (Object.keys(ingredientImages).length === 0) {
-      return <p>No images available.</p>;
+      return <p>{MESSAGES.NO_IMAGES}</p>;
     }
     return Object.keys(ingredientImages).map((ingredient) => (
       <IngredientImage
@@ -37,7 +38,7 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
   };
 
   if (ingredients[0]?.food === "yogurt") {
-    return <p>Yogurt is not available.</p>;
+    return <p>{MESSAGES.YOGURT_NOT_AVAILABLE}</p>;
   }
 
   return (
