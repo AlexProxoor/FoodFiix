@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import RecipeList from "components/RecipeList/RecipeList";
 import Filter from "components/Filter/Filter";

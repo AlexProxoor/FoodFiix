@@ -1,4 +1,4 @@
-import React from "react";
+import { ChangeEvent } from "react";
 import { diets, dishtypes } from "constans";
 import { FilterContainer, StyledSelect, StyledOption } from "./styled";
 import { FilterProps } from "constans/types/filterTypes";
@@ -9,11 +9,11 @@ const Filter: React.FC<FilterProps> = ({
   selectDishType,
   setSelectDishType,
 }) => {
-  const handleDietChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleDietChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedDiet(e.target.value);
   };
 
-  const handleDishTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleDishTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectDishType(e.target.value);
   };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { Centered, RecipeListContainer } from "./styled";
 import RecipeCard from "./RecipeCard";
 import { RecipeListProps } from "constans/types/recipeListTypes";
