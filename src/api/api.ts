@@ -5,7 +5,13 @@ import {
   RECIPE_APP_KEY,
   FOOD_DATABASE_APP_ID,
   FOOD_DATABASE_APP_KEY,
-} from "constans";
+} from "constans/api";
+
+import {
+  TYPE_PUBLIC,
+  NUTRITION_TYPE_COOKING,
+  UNKNOWN_ERROR_MESSAGE,
+} from "constans/apiParams";
 
 export const fetchRecipes = async (
   searchQuery: string,
@@ -15,7 +21,7 @@ export const fetchRecipes = async (
   try {
     const response = await axios.get(`${EDAMAM_API_URL}/recipes/v2`, {
       params: {
-        type: "public",
+        type: TYPE_PUBLIC,
         app_id: RECIPE_APP_ID,
         app_key: RECIPE_APP_KEY,
         q: searchQuery,
@@ -25,7 +31,9 @@ export const fetchRecipes = async (
     });
     return response.data;
   } catch (error) {
-    throw new Error(error instanceof Error ? error.message : "Unknown error");
+    throw new Error(
+      error instanceof Error ? error.message : UNKNOWN_ERROR_MESSAGE,
+    );
   }
 };
 
@@ -33,14 +41,16 @@ export const fetchRecipeById = async (id: string) => {
   try {
     const response = await axios.get(`${EDAMAM_API_URL}/recipes/v2/${id}`, {
       params: {
-        type: "public",
+        type: TYPE_PUBLIC,
         app_id: RECIPE_APP_ID,
         app_key: RECIPE_APP_KEY,
       },
     });
     return response.data;
   } catch (error) {
-    throw new Error(error instanceof Error ? error.message : "Unknown error");
+    throw new Error(
+      error instanceof Error ? error.message : UNKNOWN_ERROR_MESSAGE,
+    );
   }
 };
 
@@ -53,7 +63,7 @@ export const fetchIngredientData = async (ingredient: string) => {
           app_id: FOOD_DATABASE_APP_ID,
           app_key: FOOD_DATABASE_APP_KEY,
           ingr: ingredient,
-          "nutrition-type": "cooking",
+          "nutrition-type": NUTRITION_TYPE_COOKING,
         },
       },
     );

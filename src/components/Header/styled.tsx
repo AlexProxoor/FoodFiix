@@ -11,9 +11,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) =>
-    props.theme.colors.text}; // Ensure the text color matches the theme
-  font-size: ${(props) => props.theme.fontSizes.medium}; // Use theme font size
+  color: ${(props) => props.theme.colors.text};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   font-weight: 400;
   font-family: ${(props) => props.theme.fonts.spaceGrotesk};
   margin-left: ${(props) => props.theme.spacing.large};
@@ -81,7 +80,6 @@ export const MenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) =>
-      props.theme.colors.lightGray}; // Adjusted color to theme
+    background-color: ${(props) => props.theme.colors.lightGray};
   }
 `;

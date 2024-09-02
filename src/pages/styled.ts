@@ -5,12 +5,12 @@ export const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 83vh;
+  height: calc(100% - 100px);
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 20vh;
+  padding-top: 200%;
   box-sizing: border-box;
 `;
 

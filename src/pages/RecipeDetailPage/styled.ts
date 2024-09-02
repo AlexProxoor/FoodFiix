@@ -4,7 +4,7 @@ export const OuterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 100%;
   padding: ${(props) => props.theme.spacing.large};
 
   @media (max-width: 1200px) {
