@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import Logo from "assets/logoIcon.svg";
 
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #27355a;
+  background-color: ${(props) => props.theme.colors.primary};
   padding: 20px;
   text-align: left;
   position: relative;
@@ -16,6 +17,20 @@ export const Title = styled.h1`
   font-weight: 400;
   font-family: "Arial", sans-serif;
   margin-left: 100px;
+  position: relative; 
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url(${Logo});
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: -34px; 
+  }
 
   @media (max-width: 769px) {
     margin-left: 60px;
@@ -25,6 +40,11 @@ export const Title = styled.h1`
   @media (max-width: 360px) {
     margin-left: 10px;
     font-size: 12px;
+
+      &::before {
+      width: 16px; 
+      height: 16px; 
+      left: -20px; 
   }
 `;
 
@@ -33,7 +53,7 @@ export const BackButton = styled.button`
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.borderRadius.small};
   cursor: pointer;
   font-size: 14px;
   position: relative;
@@ -67,9 +87,8 @@ export const BurgerMenu = styled.div`
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: #27355a;
-  border-radius: 5px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: ${(props) => props.theme.colors.primary};
+  border-radius: ${(props) => props.theme.borderRadius.medium};
   z-index: 1000;
 `;
 
