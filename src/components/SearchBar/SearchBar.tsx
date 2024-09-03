@@ -12,7 +12,11 @@ import { SearchBarProps } from "constans/types/searchTypes";
 const InputRecipeSchema = Yup.object().shape({
   query: Yup.string()
     .min(2, "Too Short!")
-    .max(50, "Too Long!")
+    .max(30, "Too Long!")
+    .matches(
+      /^[a-zA-Z0-9._-]+$/,
+      "Invalid characters! Allowed characters are: a-z, A-Z, 0-9, '-', '_', '.'",
+    )
     .required("Required to fill out!"),
 });
 
