@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Wether from "assets/wether.svg";
+import Star from "assets/star.svg";
 
 export const OuterContainer = styled.div`
   display: flex;
@@ -145,7 +147,6 @@ export const CaloriesAndCuisine = styled.div`
     }
   }
 `;
-
 export const Calories = styled.p`
   display: flex;
   align-items: center;
@@ -153,13 +154,20 @@ export const Calories = styled.p`
   margin: 0;
 
   &::before {
-    content: "🔥";
-    font-size: ${(props) => props.theme.fontSizes.xlarge};
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url(${Wether});
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-right: ${(props) => props.theme.spacing.small};
   }
+
   span {
     margin-right: ${(props) => props.theme.spacing.small};
   }
+
   @media (max-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.medium};
   }
@@ -172,7 +180,6 @@ export const Calories = styled.p`
     font-size: ${(props) => props.theme.fontSizes.medium};
   }
 `;
-
 export const CuisineType = styled.p`
   display: flex;
   align-items: center;
@@ -181,8 +188,13 @@ export const CuisineType = styled.p`
   font-stretch: expanded;
 
   &::before {
-    content: "🌍";
-    font-size: ${(props) => props.theme.fontSizes.xlarge};
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url(${Star});
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-right: ${(props) => props.theme.spacing.small};
   }
 

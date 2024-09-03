@@ -47,7 +47,7 @@ const RecipeDetailPage: React.FC = () => {
                   <RecipeTitle>{recipe.label}</RecipeTitle>
                   <CaloriesAndCuisine>
                     <Calories>
-                      <span>{recipe.calories} </span>
+                      <span>{Math.round(recipe.calories)} </span>
                       сalories
                     </Calories>
                     <CuisineType>
